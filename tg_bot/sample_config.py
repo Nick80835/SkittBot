@@ -42,6 +42,9 @@ class Config(object):
     # CAT
     CAT_API_KEY = None
 
+    # DOG
+    DOG_API_KEY = None
+
 
 class Production(Config):
     LOGGER = False

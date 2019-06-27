@@ -60,6 +60,7 @@ if ENV:
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
 
     CAT_API_KEY = os.environ.get('CAT_API_KEY', "")
+    DOG_API_KEY = os.environ.get('DOG_API_KEY', "")
 
 else:
     from tg_bot.config import Development as Config
@@ -104,6 +105,7 @@ else:
     STRICT_GMUTE = Config.STRICT_GMUTE
 
     CAT_API_KEY = Config.CAT_API_KEY
+    DOG_API_KEY = Config.DOG_API_KEY
 
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(254318997)
