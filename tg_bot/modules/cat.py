@@ -11,9 +11,9 @@ CAT_URL = 'http://api.thecatapi.com/v1/images/search'
 
 
 class catapi():
-    def __init__(self, loop):
+    def __init__(self, loop, type):
         headers = {"x-api-key": CAT_API_KEY}
-        self.params = {"mime_types": "jpg,png"}
+        self.params = {"mime_types": type}
         self.session = aiohttp.ClientSession(loop=loop, headers=headers)
 
     async def _get(self):
@@ -33,8 +33,8 @@ class catapi():
         await self.session.close()
 
 
-async def nekoatsume(loop):
-    cathouse = catapi(loop)
+async def nekoatsume(loop, type):
+    cathouse = catapi(loop, type)
     cat = await cathouse.getcat()
     await cathouse.close()
     return cat
@@ -43,7 +43,7 @@ async def nekoatsume(loop):
 @run_async
 def cat(bot: Bot, update: Update):
     loop = asyncio.new_event_loop()
-    cat = loop.run_until_complete(nekoatsume(loop))
+    cat = loop.run_until_complete(nekoatsume(loop, "jpg,png"))
     loop.close()
     update.effective_message.reply_photo(cat[0]["url"])
 
@@ -51,9 +51,17 @@ def cat(bot: Bot, update: Update):
 @run_async
 def cathd(bot: Bot, update: Update):
     loop = asyncio.new_event_loop()
-    cat = loop.run_until_complete(nekoatsume(loop))
+    cat = loop.run_until_complete(nekoatsume(loop, "jpg,png"))
     loop.close()
     update.effective_message.reply_document(cat[0]["url"])
+
+
+@run_async
+def catgif(bot: Bot, update: Update):
+    loop = asyncio.new_event_loop()
+    cat = loop.run_until_complete(nekoatsume(loop, "gif"))
+    loop.close()
+    update.effective_message.reply_video(cat[0]["url"])
 
 
 __help__ = """
@@ -65,5 +73,7 @@ __mod_name__ = "Cat"
 if (CAT_API_KEY != None):
     CAT_HANDLER = DisableAbleCommandHandler("cat", cat, admin_ok=True, pass_args=False)
     CATHD_HANDLER = DisableAbleCommandHandler("cathd", cathd, admin_ok=True, pass_args=False)
+    CATGIF_HANDLER = DisableAbleCommandHandler("catgif", catgif, admin_ok=True, pass_args=False)
     dispatcher.add_handler(CAT_HANDLER)
     dispatcher.add_handler(CATHD_HANDLER)
+    dispatcher.add_handler(CATGIF_HANDLER)
