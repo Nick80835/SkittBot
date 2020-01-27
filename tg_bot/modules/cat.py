@@ -77,3 +77,10 @@ if (CAT_API_KEY != None):
     dispatcher.add_handler(CAT_HANDLER)
     dispatcher.add_handler(CATHD_HANDLER)
     dispatcher.add_handler(CATGIF_HANDLER)
+
+    CAT_HANDLER = DisableAbleCommandHandler("pussy", cat, admin_ok=True, pass_args=False)
+    CATHD_HANDLER = DisableAbleCommandHandler("pussyhd", cathd, admin_ok=True, pass_args=False)
+    CATGIF_HANDLER = DisableAbleCommandHandler("pussygif", catgif, admin_ok=True, pass_args=False)
+    dispatcher.add_handler(CAT_HANDLER)
+    dispatcher.add_handler(CATHD_HANDLER)
+    dispatcher.add_handler(CATGIF_HANDLER)

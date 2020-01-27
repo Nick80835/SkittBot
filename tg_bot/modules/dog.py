@@ -77,3 +77,10 @@ if (DOG_API_KEY != None):
     dispatcher.add_handler(DOG_HANDLER)
     dispatcher.add_handler(DOGHD_HANDLER)
     dispatcher.add_handler(DOGGIF_HANDLER)
+
+    DOG_HANDLER = DisableAbleCommandHandler("bitch", dog, admin_ok=True, pass_args=False)
+    DOGHD_HANDLER = DisableAbleCommandHandler("bitchhd", doghd, admin_ok=True, pass_args=False)
+    DOGGIF_HANDLER = DisableAbleCommandHandler("bitchgif", doggif, admin_ok=True, pass_args=False)
+    dispatcher.add_handler(DOG_HANDLER)
+    dispatcher.add_handler(DOGHD_HANDLER)
+    dispatcher.add_handler(DOGGIF_HANDLER)
