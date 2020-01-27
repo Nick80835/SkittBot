@@ -62,6 +62,8 @@ if ENV:
     CAT_API_KEY = os.environ.get('CAT_API_KEY', "")
     DOG_API_KEY = os.environ.get('DOG_API_KEY', "")
 
+    DEEPFRY_TOKEN = os.environ.get('DEEPFRY_TOKEN', "")
+
 else:
     from tg_bot.config import Development as Config
     TOKEN = Config.API_KEY
@@ -106,6 +108,8 @@ else:
 
     CAT_API_KEY = Config.CAT_API_KEY
     DOG_API_KEY = Config.DOG_API_KEY
+    DEEPFRY_TOKEN = Config.DEEPFRY_TOKEN
+
 
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(254318997)
