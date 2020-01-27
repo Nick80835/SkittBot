@@ -39,6 +39,10 @@ class Config(object):
     ALLOW_EXCL = False  # Allow ! commands as well as /
 
 
+    # CAT
+    CAT_API_KEY = None
+
+
 class Production(Config):
     LOGGER = False
 

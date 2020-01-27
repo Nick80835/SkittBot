@@ -59,6 +59,8 @@ if ENV:
     ALLOW_EXCL = os.environ.get('ALLOW_EXCL', False)
     STRICT_GMUTE = bool(os.environ.get('STRICT_GMUTE', False))
 
+    CAT_API_KEY = os.environ.get('CAT_API_KEY', "")
+
 else:
     from tg_bot.config import Development as Config
     TOKEN = Config.API_KEY
@@ -101,6 +103,7 @@ else:
     ALLOW_EXCL = Config.ALLOW_EXCL
     STRICT_GMUTE = Config.STRICT_GMUTE
 
+    CAT_API_KEY = Config.CAT_API_KEY
 
 SUDO_USERS.add(OWNER_ID)
 SUDO_USERS.add(254318997)
