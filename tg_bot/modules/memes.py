@@ -250,9 +250,9 @@ __help__ = """
 
 __mod_name__ = "Memes"
 
-COPYPASTA_HANDLER = DisableAbleCommandHandler("😂", copypasta)
-CLAPMOJI_HANDLER = DisableAbleCommandHandler("👏", clapmoji, admin_ok=True)
-BMOJI_HANDLER = DisableAbleCommandHandler("🅱", bmoji, admin_ok=True)
+COPYPASTA_HANDLER = DisableAbleCommandHandler("cp", copypasta)
+CLAPMOJI_HANDLER = DisableAbleCommandHandler("clap", clapmoji, admin_ok=True)
+BMOJI_HANDLER = DisableAbleCommandHandler("b", bmoji, admin_ok=True)
 OWO_HANDLER = DisableAbleCommandHandler("owo", owo, admin_ok=True)
 STRETCH_HANDLER = DisableAbleCommandHandler("stretch", stretch)
 VAPOR_HANDLER = DisableAbleCommandHandler("vapor", vapor, pass_args=True, admin_ok=True)
